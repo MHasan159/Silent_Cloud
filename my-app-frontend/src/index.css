@@ -11,3 +11,37 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav a:hover{
+  background: rgb(30, 95, 216);
+}
+.nav {
+ position:fixed;
+ margin-left: 0;
+ padding-left: 0;
+ top: 0;
+ color: rgb(255, 255, 255);
+ background-color: rgb(58, 57, 57);
+ nav-left: auto;
+ height: 100%;
+ width: 150px;
+ overflow: hidden;
+}
+.nav ul{
+  /* display: none; */
+  line-height:100px;
+  position:static
+}
+.nav ul li{
+  line-height: 100px;
+}
+.nav ul li a{
+  padding-left: 20px;
+  line-height: 70px;
+  font-size: 12px;
+}
+.link {
+  text-decoration: none;
+  list-style: none;
+  color: white;
+}

@@ -1,25 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from "react"
+import { Route, Switch, Link } from "react-router-dom"
+import NavTabs from "./components/NavTabs"
+import Playlists from "./components/Playlists"
+import SimpleBottomNavigation from "./components/SimpleBottomNavigation"
+import ActionAreaCard from "./components/ActionAreaCard"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+function App(){
+
+  const playListApi = "http://localhost:9292/playlists"
+
+  const [playlist, setPlaylist] = useState([])
+
+  const [page, setPage] = useState("/")
+
+
+  useEffect(()=>{
+    fetch(playListApi)
+    .then(r => r.json())
+    .then(data => setPlaylist(data))
+  }, [])
+
+
+return(
+  <div>
+    <SimpleBottomNavigation/>
+    <Switch>
+      <Route exact path="/">
+        <Playlists playlist={playlist} />
+        {/* <ActionAreaCard/> */}
+        <h2></h2>
+      </Route>
+
+    </Switch>
+  </div>
+
+
+)
 }
-
-export default App;
+export default App; 
