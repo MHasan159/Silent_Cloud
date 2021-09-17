@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -28,19 +28,6 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.link {
-  text-decoration: none;
-  list-style: none;
-}
 .nav a:hover{
   background: rgb(30, 95, 216);
 }
@@ -59,19 +46,92 @@
 }
 .nav ul{
   /* display: none; */
-  line-height:100px;
+  /* line-height:100px;
   position:static
 }
 .nav ul li{
-  line-height: 100px;
-}
-.nav ul li a{
-  padding-left: 20px;
-  line-height: 70px;
-  font-size: 12px;
-}
-.box{
-  height: 500px;
+  line-height: 100px; */ */
+ form.Form{
+   padding-top: 100px;
+  background-color: rgba(160, 159, 159, 0.13);
+  text-align: center;
+  margin: auto;
+  display: flex;
   width: 500px;
-  background-color: black;
+  font-weight: normal;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  } 
+
+  h2{
+  padding-top: 100px;
+  padding-bottom: 50px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  } 
+
+  p{
+  padding-top: 100px;
+  padding-top: 10px;
+  text-align: center;
+  margin: auto;
+  display: flex;
+  width: 500px;
+  font-weight: normal;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  }
+  
+  /* .Submit{
+    margin-top: 50px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+     width: 90px;
+     font-size: 20px;
+     font-weight: normal;
+     display: flex;
+  flex-direction: column;
+  } */
+  .Submit{
+    background-color: light grey;
+    border: none;
+    color: black;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: auto;
+    margin-top: 10px;
+    cursor: pointer;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+
+  }
+  input[type=text]:focus {
+    background-color: lightblue;
+  }
+  .Submit:hover {
+    
+    background:lightblue;
+    /* color:rgb(219, 185, 185); */
+    border:1pxsolid#eee;
+    box-shadow:5px5px5px#eee;
+    text-shadow:none;
 }
+  /* p{
+    padding-top: 100px;
+    text-align: center;
+    margin: auto;
+    display: flex;
+    width: 500px;
+    font-weight: normal;
+    font-size: 15px;
+    display: flex;
+    flex-direction: column;
+  } */

@@ -1,10 +1,11 @@
+
 import React from "react";
 import { Link } from "react-router-dom";
-import ActionAreaCard from "./ActionAreaCard";
-import BasicTextFields from "./BasicTextFields";
+
 
 
 function Playlists( {removePlaylist, playlist, setPlaylist, image, setImage, newPlaylist, setNewPlaylist}) {
+
 
    const mappedPlaylist = playlist.map((playli)=>{
        return(
@@ -26,5 +27,7 @@ function Playlists( {removePlaylist, playlist, setPlaylist, image, setImage, new
         </div>
 
     )
+
+    
+
 }
-export default Playlists

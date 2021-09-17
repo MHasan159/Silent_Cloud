@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from "react"
+import use_history from "react"
+import './App.css';
 import { Route, Switch, Link } from "react-router-dom"
 import NavTabs from "./components/NavTabs"
 import Playlists from "./components/Playlists"
@@ -10,15 +12,20 @@ import ArtistSongs from "./components/ArtistSongs"
 import PlaylistSongs from "./components/PlaylistSongs"
 
 
-function App(){
+
+
+
+
+
+export default function App(){
 
   const playListApi = "http://localhost:9292/playlists"
-
   const artistsApi = "http://localhost:9292/artists"
-
   const songsApi = "http://localhost:9292/songs"
+  
 
   const [playlist, setPlaylist] = useState([])
+  // const [postPlaylist, setPostPlaylist] = useState([])
 
   const [artists, setArtists] = useState([])
 
@@ -48,19 +55,23 @@ function App(){
     .then(data => setSongs(data))
   }, [])
 
+
   function removePlaylist(playlistId){
     const updatedPlaylist = playlist.filter((list)=>{
       return list.id !== playlistId
     })
     setPlaylist(updatedPlaylist)
   }
+  
 
 return(
   <div>
     <SimpleBottomNavigation/>
     <Switch>
       <Route exact path="/">
+
         <Playlists playlist={playlist} removePlaylist={removePlaylist} setPlaylist={setPlaylist} image={image} setImage={setImage} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} />
+
       </Route>
       <Route path="/artists">
         <Artists artists={artists} />
@@ -81,4 +92,3 @@ return(
 
 )
 }
-export default App; 
