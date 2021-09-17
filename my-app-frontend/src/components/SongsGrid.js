@@ -4,7 +4,11 @@ import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import { makeStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/styles';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import { CardActionArea } from '@mui/material';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -28,7 +32,18 @@ function SongsGrid({songs}){
         return(
             
         <Grid item >
-            <Paper className={classes.root} >{song.artist.image_url}{song.artist.name} <br/> {song.title} </Paper>
+            <Card sx={{ maxWidth: 250, minWidth: 250, marginLeft: 30, marginTop: 7}}>
+            <CardContent>
+            <CardMedia
+                component="img"
+                height="140"
+                image={song.artist.image_url}
+                alt="Cover"
+            />
+            <Typography gutterBottom variant="h5" component="div">{song.artist.name} <br/> {song.title}</Typography>
+            </CardContent>
+            </Card>
+            {/* <Paper className={classes.root} >{song.artist.image_url}{song.artist.name} <br/> {song.title} </Paper> */}
         </Grid>
         )
     })

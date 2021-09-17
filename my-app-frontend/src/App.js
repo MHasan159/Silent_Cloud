@@ -8,7 +8,10 @@ import SimpleBottomNavigation from "./components/SimpleBottomNavigation"
 import ActionAreaCard from "./components/ActionAreaCard"
 import Artists from "./components/Artists"
 import Songs from "./components/Songs"
-import FormData from "./components/FormData"
+import ArtistSongs from "./components/ArtistSongs"
+import PlaylistSongs from "./components/PlaylistSongs"
+
+
 
 
 
@@ -30,12 +33,15 @@ export default function App(){
 
   const [page, setPage] = useState("/")
 
+  const [image, setImage] = useState("")
+
+  const [newPlaylist, setNewPlaylist] = useState("")
 
   useEffect(()=>{
     fetch(playListApi)
     .then(r => r.json())
     .then(data => setPlaylist(data))
-  }, [])
+  }, [image])
 
   useEffect(()=>{
     fetch(artistsApi)
@@ -49,43 +55,35 @@ export default function App(){
     .then(data => setSongs(data))
   }, [])
 
-  const addPlaylist = (formData)=>{
 
-
- const body = JSON.stringify({
-      playlist_name: formData.name,
-      visits: formData.visits,
-      image_url: formData.image
+  function removePlaylist(playlistId){
+    const updatedPlaylist = playlist.filter((list)=>{
+      return list.id !== playlistId
     })
-    
-    fetch("http://localhost:9292/post_playlist", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body
-    })
-      .then(res => res.json())
-      .then(newPlaylist => {
-        setPlaylist(newPlaylist.concat(newPlaylist))
-      })
-    
+    setPlaylist(updatedPlaylist)
   }
-
+  
 
 return(
   <div>
     <SimpleBottomNavigation/>
     <Switch>
       <Route exact path="/">
-        <Playlists playlist={playlist} />
-        <FormData addPlaylist ={addPlaylist}/>
+
+        <Playlists playlist={playlist} removePlaylist={removePlaylist} setPlaylist={setPlaylist} image={image} setImage={setImage} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} />
+
       </Route>
       <Route path="/artists">
         <Artists artists={artists} />
       </Route>
       <Route path="/songs">
         <Songs songs={songs}  />
+      </Route>
+      <Route path="/artist/:id">
+        <ArtistSongs />
+      </Route>
+      <Route path="/playlists/:id">
+        <PlaylistSongs/>
       </Route>
 
     </Switch>
