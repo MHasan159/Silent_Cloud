@@ -1,5 +1,6 @@
 import React from "react";
 import SongsGrid from "./SongsGrid";
+import BasicTable from "./BasicTable";
 
 
 
@@ -10,7 +11,8 @@ function Songs( {songs} ){
 
     return(
         <div>
-            <SongsGrid songs={songs}/>
+            <BasicTable songs={songs}/>
+            {/* <SongsGrid songs={songs}/> */}
         </div>
     )
 }

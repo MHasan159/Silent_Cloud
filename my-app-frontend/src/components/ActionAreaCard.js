@@ -4,9 +4,26 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
+import Button from '@mui/material/Button';
 
 
-export default function ActionAreaCard({model}) {
+export default function ActionAreaCard({model, setPlaylist}) {
+
+    function handleDelete(){
+        fetch(`http://localhost:9292/delete_playlist/${model.id}`, {
+            method: "DELETE",
+            header: { "content-type": "application/json"},
+          }) .then(r=> r.json())
+          .then(data => setPlaylist(data))
+        return
+    }
+
+    function addDelete(){
+        if(model.playlist_name){
+        return<Button onClick={handleDelete} size="small" variant="outlined">Delete</Button>
+    }}
+    
+    
   return (
     <Card sx={{ maxWidth: 250, minWidth: 250, marginLeft: 30, marginTop: 7}}>
       <CardActionArea>
@@ -24,6 +41,8 @@ export default function ActionAreaCard({model}) {
           <Typography variant="body2" color="text.secondary">
               {model.visits}
           </Typography>
+          { addDelete() }
+          
         </CardContent>
       </CardActionArea>
     </Card>

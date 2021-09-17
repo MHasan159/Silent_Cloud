@@ -22,7 +22,7 @@ export default function SimpleBottomNavigation() {
   return (
     <Box sx={{ width: 1600}}>
       <BottomNavigation
-        style={{backgroundColor: "#746666", height:90, width:1920}}
+        style={{backgroundColor: "#746666", height:90, width:1900}}
         showLabels
         value={value}
         onChange={(event, newValue) => {
