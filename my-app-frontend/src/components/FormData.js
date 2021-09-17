@@ -1,23 +1,23 @@
 
 import React, { useState } from 'react';
 
-export default function FormData({playlist}) {
+function FormData({addPlaylist}) {
   const [playlistName, setPlaylistName] = useState("");
   const [visits, setVisits] = useState("");
-  const [image, setimage] = useState("");
+  const [image, setImage] = useState("");
         
         const handleSubmit = (e) => {
           e.preventDefault()
-          playlist({playlistName, visits, image})
+          addPlaylist({playlistName, visits, image})
         }
     return (
         <form className = "Form" onSubmit={handleSubmit}>
-        <h2>Playlist</h2>
+        <h2>Create New Playlist</h2>
         <p>
           <label htmlFor="name">Playlist Name</label><br/>
           <input
             type="text"
-            id="name"
+            id=" name"
             name="name"
             onChange={(e) => setPlaylistName(e.target.value)}
             value={playlistName}
@@ -39,11 +39,12 @@ export default function FormData({playlist}) {
             type="text"
             id="image_url"
             name="image_url"
-            onChange={(e) => setimage(e.target.value)}
+            onChange={(e) => setImage(e.target.value)}
             value={image}
           />
         </p>
-        <button type="submit">submit</button>
+        <button className = "Submit" type="submit">submit</button>
       </form>
     )
 }
+export default FormData;
