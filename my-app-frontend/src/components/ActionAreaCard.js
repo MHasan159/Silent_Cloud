@@ -6,22 +6,23 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 
-export default function ActionAreaCard({playlist}) {
+export default function ActionAreaCard({model}) {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 250, minWidth: 250, marginLeft: 30, marginTop: 7}}>
       <CardActionArea>
         <CardMedia
           component="img"
           height="140"
-          image={playlist.image_url}
+          image={model.image_url}
           alt="Cover"
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-            {playlist.playlist_name}
+            {model.playlist_name}
+            {model.name}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-              Visits:{playlist.visits}
+              {model.visits}
           </Typography>
         </CardContent>
       </CardActionArea>
