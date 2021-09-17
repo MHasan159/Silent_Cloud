@@ -1,5 +1,8 @@
 import React from "react";
 import ActionAreaCard from "./ActionAreaCard";
+import FormData from "./FormData"
+
+
 
 function Playlists( {playlist}) {
 
@@ -8,9 +11,14 @@ function Playlists( {playlist}) {
     })
 
     return(
+        <>
         <div className="grid">
             {mappedPlaylist}
         </div>
+        <div>
+            <FormData/>
+        </div>
+        </>
 
     )
 }
