@@ -48,13 +48,19 @@ function App(){
     .then(data => setSongs(data))
   }, [])
 
+  function removePlaylist(playlistId){
+    const updatedPlaylist = playlist.filter((list)=>{
+      return list.id !== playlistId
+    })
+    setPlaylist(updatedPlaylist)
+  }
 
 return(
   <div>
     <SimpleBottomNavigation/>
     <Switch>
       <Route exact path="/">
-        <Playlists playlist={playlist} setPlaylist={setPlaylist} image={image} setImage={setImage} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} />
+        <Playlists playlist={playlist} removePlaylist={removePlaylist} setPlaylist={setPlaylist} image={image} setImage={setImage} newPlaylist={newPlaylist} setNewPlaylist={setNewPlaylist} />
       </Route>
       <Route path="/artists">
         <Artists artists={artists} />

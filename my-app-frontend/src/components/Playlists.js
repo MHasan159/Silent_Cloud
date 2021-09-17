@@ -4,13 +4,13 @@ import ActionAreaCard from "./ActionAreaCard";
 import BasicTextFields from "./BasicTextFields";
 
 
-function Playlists( {playlist, setPlaylist, image, setImage, newPlaylist, setNewPlaylist}) {
+function Playlists( {removePlaylist, playlist, setPlaylist, image, setImage, newPlaylist, setNewPlaylist}) {
 
    const mappedPlaylist = playlist.map((playli)=>{
        return(
-           <Link style={{textDecoration: "none"}} to= {`/playlists/${playli.id}`}>
-            <ActionAreaCard model={playli} setPlaylist={setPlaylist} />
-            </Link>
+           
+            <ActionAreaCard model={playli} setPlaylist={setPlaylist} removePlaylist={removePlaylist} />
+            
        )
     })
 
