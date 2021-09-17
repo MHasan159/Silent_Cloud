@@ -4,11 +4,11 @@ import ActionAreaCard from "./ActionAreaCard";
 function Playlists( {playlist}) {
 
    const mappedPlaylist = playlist.map((playli)=>{
-       return <ActionAreaCard playlist={playli} />
+       return <ActionAreaCard model={playli} />
     })
 
     return(
-        <div>
+        <div className="grid">
             {mappedPlaylist}
         </div>
 

@@ -5,6 +5,7 @@ import Playlists from "./components/Playlists"
 import SimpleBottomNavigation from "./components/SimpleBottomNavigation"
 import ActionAreaCard from "./components/ActionAreaCard"
 import Artists from "./components/Artists"
+import Songs from "./components/Songs"
 
 
 function App(){
@@ -13,9 +14,13 @@ function App(){
 
   const artistsApi = "http://localhost:9292/artists"
 
+  const songsApi = "http://localhost:9292/songs"
+
   const [playlist, setPlaylist] = useState([])
 
   const [artists, setArtists] = useState([])
+
+  const [songs, setSongs] = useState([])
 
   const [page, setPage] = useState("/")
 
@@ -32,6 +37,12 @@ function App(){
     .then(data => setArtists(data))
   }, [])
 
+  useEffect(()=>{
+    fetch(songsApi)
+    .then(r => r.json())
+    .then(data => setSongs(data))
+  }, [])
+
 
 return(
   <div>
@@ -40,8 +51,11 @@ return(
       <Route exact path="/">
         <Playlists playlist={playlist} />
       </Route>
-      <Route exact path="/artists">
+      <Route path="/artists">
         <Artists artists={artists} />
+      </Route>
+      <Route path="/songs">
+        <Songs songs={songs}  />
       </Route>
 
     </Switch>
